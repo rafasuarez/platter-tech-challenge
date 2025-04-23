@@ -1,0 +1,141 @@
+{%- liquid
+    assign title = section.settings.title | default: nil
+    assign shop_all = section.settings.shop_all | default: nil
+    assign shop_url = section.settings.shop_url | default: nil
+    assign carousel_products = section.settings.carousel_products
+    assign carousel_products_size = carousel_products.size
+  -%}
+  <section class="py-14">
+      <div class="carousel">
+          <header class="flex justify-center lg:justify-between items-center w-full mx-auto px-6 lg:px-32 pb-6 lg:pb-[2.375rem]">
+              {%- if title -%}
+                  <h1 class="font-source-serif font-bold lg:font-black text-[1.75rem] lg:text-[2.5rem] leading-none text-default-black">
+                      {{ title }}
+                  </h1>
+              {%- endif -%}
+              {%- if shop_all and shop_url -%}
+                  <a href="{{ shop_url }}" class="hidden md:flex justify-end items-center ml-auto px-8 py-4 font-poppins font-semibold text-sm leading-none text-secondary-ocher tracking-wider">
+                  {{ shop_all }}
+                  <img
+                      aria-hidden
+                      loading="lazy"
+                      class="block ml-2 w-5 h-5"
+                      src="{{ 'icon-arrow-right.svg' | asset_url }}"
+                      alt="Arrow Right Icon"
+                      width="20"
+                      height="20"
+                  >
+                  </a>
+              {%- endif -%}
+          </header>
+          <div class="w-full h-auto overflow-hidden">
+              <div class="js-carousel-element productCarousel__container lg:overflow-x-scroll transition-[grid-template-rows] grid grid-flow-row lg:grid-flow-col grid-cols-2 lg:grid-cols-none grid-rows-[1fr_1fr_0fr_0fr_0fr] lg:grid-rows-[auto] gap-3 lg:gap-6 lg:auto-cols-[20vw] duration-250 ease-[ease-in-out] lg:pb-12 lg:overflow-x-scroll lg:scroll-smooth scrollbar scrollbar-h-1 scrollbar-track-neutral-gray scrollbar-thumb-default-black scrollbar-thumb-rounded-md">
+              {%- for product in carousel_products -%}
+                  {%- liquid 
+                      assign product_image = product.images[0]
+                      assign product_image_hover = product.images[1] | default: nil
+                      assign product_title = product.title
+                      assign product_price = product.price
+                      assign product_url = product.url
+                  -%}
+                  <article class="overflow-hidden">
+                      <div class="w-full">
+                      <a href="{{ product_url }}" class="block relative w-full mb-4 aspect-square rounded-[0.625rem] overflow-hidden">
+                          <img
+                          loading="lazy" 
+                          class="absolute object-cover w-full h-full z-20{% if product_image_hover %} transition-opacity duration-250 ease-[ease-in-out] hover:opacity-0{% endif %}"
+                              src="{{ product_image | image_url: width: 355, height: 355 }}"
+                          alt="Featured Image of {{ product_title }}"
+                          width="355"
+                          height="355"
+                          >
+                          {% if product_image_hover -%}
+                              <img
+                              loading="lazy"
+                              class="absolute object-cover w-full h-full pointer-none:"
+                              src="{{ product_image_hover | image_url: width: 355, height: 355 }}"
+                              width="355"
+                              height="355"
+                              alt="Second Image of {{ product_title }}"
+                              >
+                          {%- endif -%}
+                          {%- if product.tags contains 'best_seller' -%}
+                              <span class="productCard__badge block absolute top-2 left-2 z-30 px-2 py-1 font-bebas-neue text-[0.5rem] lg:text-[0.625rem] leading-none tracking-wider text-black uppercase border border-black rounded-[6.25rem] bg-white">
+                              Best Seller
+                              </span>
+                          {%- endif -%}
+                      </a>
+                      <div class="w-full px-3">
+                          <a href="#">
+                          <h3 class="mb-2 font-bebas-neue text-base lg:text-lg leading-tight lg:leading-normal tracking-wider uppercase text-default-black">
+                              {{ product_title }}
+                          </h3>
+                          </a>
+                          <div class="productCard-reviews">
+                          <span class="flex justify-start items-center mb-3 font-poppins text-[0.6875rem] lg:text-xs leading-tight lg:leading-normal text-default-gray">
+                              <img
+                              loading="lazy" 
+                              class="block w-[3.3125rem] lg:w-[4.25rem] h-[0.5625rem] lg:h-[0.75rem] mr-1"
+                              src="{{ 'icon-arrow-right.svg' | asset_url }}"
+                              alt="5.0 of 5.0 stars reviews on average"
+                              width="68"
+                              height="12"
+                              >
+                              1,234 Reviews
+                          </span>
+                          </div>
+                          <span class="block mb-2 font-poppins font-medium text-base leading-tight lg:leading-normal text-default-black">
+                          {{ product_price | money }}
+                          </span>
+                      </div>
+                      </div>
+                  </article>
+              {%- endfor -%}
+              </div>
+          </div>
+          {%- if carousel_products_size > 4 -%}
+          <div class="w-full px-6 lg:px-32">
+              <button class="js-toggle-button relative flex lg:hidden justify-center items-center w-full px-8 py-4 font-poppins font-semibold text-base text-neutral-white tracking-wider rounded-[6.25rem] bg-default-black">
+              Show More
+              </button>
+          </div>
+          {%- endif -%}
+      </div>
+  </section>
+  
+  {% schema %}
+      {
+          "name": "Product Carousel",
+          "class": "",
+          "settings": [
+              {
+                  "type": "text",
+                  "id": "title",
+                  "label": "Title",
+                  "default": "Featured Products"
+              },
+              {
+                  "type": "text",
+                  "id": "shop_all",
+                  "label": "Shop All Text",
+                  "default": "Shop All"
+              },
+              {
+                  "type": "url",
+                  "id": "shop_url",
+                  "label": "Shop All URL"
+              },
+              {
+                  "type": "product_list",
+                  "id": "carousel_products",
+                  "label": "Products",
+                  "limit": 10
+              }
+          ],
+          "presets": [
+            {
+              "name": "Product Carousel"
+            }
+          ]
+      }
+  {% endschema %}
