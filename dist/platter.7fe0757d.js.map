@@ -1,0 +1,1 @@
+{"mappings":"AAAA,OAAO,gBAAgB,CAAC,oBAAoB,KAE1C","sources":["src/scripts.ts"],"sourcesContent":["window.addEventListener('DOMContentLoaded', () => {\n\n  })\n  "],"names":[],"version":3,"file":"platter.7fe0757d.js.map","sourceRoot":"/__parcel_source_root/"}

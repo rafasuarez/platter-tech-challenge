@@ -1,0 +1,14 @@
+{  
+"name": "platter-tech-challenge",
+"private": true,
+"version": "0.0.0",
+"source": "src/index.html",
+"scripts": {
+  "start": "parcel",
+  "build": "parcel build"
+},
+  "dependencies": {
+    "parcel": "^2.14.4",
+    "tailwindcss": "^4.1.4"
+  }
+}

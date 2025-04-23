@@ -1,0 +1,1 @@
+{"mappings":"AAAA;;;;;AAKA","sources":["src/style.css"],"sourcesContent":["html {\n  font-family: system-ui;\n  font-size: 16px;\n}\n\n.no-select {\n  user-select: none;\n}"],"names":[],"version":3,"file":"platter.2cdaf7bc.css.map","sourceRoot":"/__parcel_source_root/"}

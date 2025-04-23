@@ -1,0 +1,1 @@
+{"mappings":"ACAA,OAAO,gBAAgB,CAAC,mBAAoB,KAE1C","sources":["<anon>","src/scripts.ts"],"sourcesContent":["window.addEventListener('DOMContentLoaded', ()=>{});\n\n//# sourceMappingURL=platter.ecf9acf5.js.map\n","window.addEventListener('DOMContentLoaded', () => {\n\n  })\n  "],"names":["window","addEventListener"],"version":3,"file":"platter.ecf9acf5.js.map"}
