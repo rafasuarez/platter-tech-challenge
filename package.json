@@ -1,14 +1,21 @@
-{  
-"name": "platter-tech-challenge",
-"private": true,
-"version": "0.0.0",
-"source": "src/index.html",
-"scripts": {
-  "start": "parcel",
-  "build": "parcel build"
-},
+{
+  "name": "platter-tech-challenge",
+  "private": true,
+  "version": "0.0.0",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
   "dependencies": {
+    "@tailwindcss/cli": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.4"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.14.4",
+    "@tailwindcss/postcss": "^4.1.4",
     "parcel": "^2.14.4",
+    "svgo": "^3.3.2",
     "tailwindcss": "^4.1.4"
   }
 }
