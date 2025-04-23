@@ -1,3 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --font-source-serif: "Source Serif 4", serif; 
+  --font-bebas-neue: "Bebas Neue", sans-serif; 
+  --font-poppins: "Poppins", sans-serif;
+
+  --color-neutral-white: #FFFFFA;
+  --color-default-black: #1C1D1D;
+  --color-neutral-black: #231F20;
+  --color-default-gray: #707070;
+  --color-neutral-gray: #DDD6D7;
+  --color-primary-green: #5C7962;
+  --color-secondary-ocher: #5C553A;
+}
+
 html {
   font-family: system-ui;
   font-size: 16px;
