@@ -695,8 +695,8 @@
     --scrollbar-thumb: #1c1d1d;
   }
 
-  .scrollbar-thumb-sky-700 {
-    --scrollbar-thumb: oklch(50% .134 242.749);
+  .scrollbar-thumb-rounded-md {
+    --scrollbar-thumb-radius: .375rem;
   }
 
   .scrollbar-track-neutral-gray {
@@ -837,6 +837,14 @@
     @media (width >= 64rem) {
       & {
         padding-bottom: calc(var(--spacing) * 12);
+      }
+    }
+  }
+
+  .lg\:pb-16 {
+    @media (width >= 64rem) {
+      & {
+        padding-bottom: calc(var(--spacing) * 16);
       }
     }
   }
