@@ -1,0 +1,2 @@
+window.addEventListener("DOMContentLoaded",()=>{let e=document.querySelector(".js-toggle-button"),t=document.querySelector(".js-carousel-element");e&&t instanceof HTMLElement&&(()=>{let r=!1;e.addEventListener("click",()=>{r=!r,t.classList.toggle("grid-rows-[1fr_1fr_0fr_0fr_0fr]",!r),t.classList.toggle("grid-rows-[1fr_1fr_1fr_1fr_1fr]",r),e.textContent=r?"Show Less":"Show More"})})()});
+//# sourceMappingURL=platter.93ddaef5.js.map

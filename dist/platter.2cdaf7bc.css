@@ -291,6 +291,15 @@
   [hidden]:where(:not([hidden="until-found"])) {
     display: none !important;
   }
+
+  * {
+    @supports ((-moz-appearance: none)) {
+      & {
+        scrollbar-color: initial;
+        scrollbar-width: initial;
+      }
+    }
+  }
 }
 
 @layer components;
@@ -350,6 +359,36 @@
 
   .ml-auto {
     margin-left: auto;
+  }
+
+  .scrollbar {
+    &::-webkit-scrollbar-track {
+      background-color: var(--scrollbar-track);
+      border-radius: var(--scrollbar-track-radius);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scrollbar-thumb);
+      border-radius: var(--scrollbar-thumb-radius);
+    }
+
+    &::-webkit-scrollbar-corner {
+      background-color: var(--scrollbar-corner);
+      border-radius: var(--scrollbar-corner-radius);
+    }
+
+    @supports ((-moz-appearance: none)) {
+      & {
+        scrollbar-width: auto;
+        scrollbar-color: var(--scrollbar-thumb, initial) var(--scrollbar-track, initial);
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: var(--scrollbar-width, 16px);
+      height: var(--scrollbar-height, 16px);
+      display: block;
+    }
   }
 
   .block {
@@ -648,6 +687,22 @@
     transition-timing-function: ease-in-out;
   }
 
+  .scrollbar-h-1 {
+    --scrollbar-height: .25rem;
+  }
+
+  .scrollbar-thumb-default-black {
+    --scrollbar-thumb: #1c1d1d;
+  }
+
+  .scrollbar-thumb-sky-700 {
+    --scrollbar-thumb: oklch(50% .134 242.749);
+  }
+
+  .scrollbar-track-neutral-gray {
+    --scrollbar-track: #ddd6d7;
+  }
+
   .hover\:opacity-0 {
     &:hover {
       @media (hover: hover) {
@@ -742,6 +797,14 @@
     @media (width >= 64rem) {
       & {
         overflow-x: scroll;
+      }
+    }
+  }
+
+  .lg\:scroll-smooth {
+    @media (width >= 64rem) {
+      & {
+        scroll-behavior: smooth;
       }
     }
   }
