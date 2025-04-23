@@ -6,7 +6,6 @@ window.addEventListener('DOMContentLoaded', () => {
         return
     }
 
-
     const setupToggleButton = () => {
         let expanded = false
         loadMorebutton.addEventListener('click', () => {

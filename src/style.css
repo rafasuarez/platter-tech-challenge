@@ -5,10 +5,9 @@
   preferredStrategy: 'pseudoelements';
 }
 
-
 @theme {
-  --font-source-serif: "Source Serif 4", serif; 
-  --font-bebas-neue: "Bebas Neue", sans-serif; 
+  --font-source-serif: "Source Serif 4", serif;
+  --font-bebas-neue: "Bebas Neue", sans-serif;
   --font-poppins: "Poppins", sans-serif;
 
   --color-neutral-white: #FFFFFA;
