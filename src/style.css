@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@plugin 'tailwind-scrollbar' {
+  nocompatible: true;
+  preferredStrategy: 'pseudoelements';
+}
+
+
 @theme {
   --font-source-serif: "Source Serif 4", serif; 
   --font-bebas-neue: "Bebas Neue", sans-serif; 
