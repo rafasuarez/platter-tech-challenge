@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "source": "src/index.html",
+  "homepage": "https://rafasuarez.github.io/platter-tech-challenge/",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build index.html --public-url ./",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.4",
